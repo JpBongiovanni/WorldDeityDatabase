@@ -48,7 +48,7 @@ def deities_by_location_page(request, deity_location):
             "deity_location": deity_location,
         }
         d_loc = TemplateResponse(request, 'deities_by_location_page.html', context, {})
-    return d_loc
+        return d_loc
 
 def deities_by_religion_page(request, deity_religion):
         context = {
