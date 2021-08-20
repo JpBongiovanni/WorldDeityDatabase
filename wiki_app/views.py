@@ -5,6 +5,7 @@ from urllib.parse import parse_qs
 import bcrypt
 from django.db.models import Q
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
+from django.template.response import TemplateResponse
 
 
 
@@ -33,13 +34,21 @@ def home_page_render(request):
 def register_page_render(request):
     return render(request, "register_page.html")
 
+# def deities_by_location_page(request, deity_location):
+#         context = {
+#             "user": User.objects.get(id = request.session['user_id']),
+#             "deity": Deity.objects.filter(location = deity_location),
+#             "deity_location": deity_location,
+#         }
+#         return render(request, "deities_by_location_page.html", context)
 def deities_by_location_page(request, deity_location):
         context = {
             "user": User.objects.get(id = request.session['user_id']),
             "deity": Deity.objects.filter(location = deity_location),
             "deity_location": deity_location,
         }
-        return render(request, "deities_by_location_page.html", context)
+        d_loc = TemplateResponse(request, 'deities_by_location_page.html', context, {})
+    return d_loc
 
 def deities_by_religion_page(request, deity_religion):
         context = {
