@@ -1,1 +1,1 @@
-web: gunicorn WWD.wsgi --log-file -
+web: gunicorn coding_dojo_final_project.wsgi --log-file -
