@@ -35,14 +35,14 @@
         </form>
         </div>
     </nav>
-    <div class="container container-fluid">
-        <p><strong>Edit Entry</strong></p>
+    <div class="container container-fluid" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
+        <p class="text-center pb-3" style="font-size: xx-large;"><strong>Edit Entry</strong></p>
         {% for message in messages %}
             <p>{{message}}</p>
             {% endfor %}
     </div>
-        <div class="container p-3 my-3 border">
-            <div class="row">
+        <div class="container p-3 my-3 border" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
+            <div class="row p-3">
                 <P><strong>{{deity.name}}</strong> <i>{{deity.alt_name}}</i> ({{deity.culture}})</P><br>
                 <p style="text-indent: 50px">{{deity.description}}</p> <br>
                 <p><u>Pop Culture References:</u> {{deity.pop_culture}} </p><br>
@@ -50,7 +50,7 @@
                 <p><u>Sources</u>: <i>{{deity.source}}</i></p>
                 <hr style="border: 1px solid black;">
             </div>
-            <form class="jumbotron" action="/edit_deity/{{deity.id}}" method="POST">
+            <form class="jumbotron" action="/edit_deity/{{deity.id}}" method="POST" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name">Deity Name</label>
@@ -85,7 +85,7 @@
                     <textarea type="source" name="source" id="source" class="form-control">{{deity.source}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Edit Deity in Database</button>
-                <p style="font-weight: bold;"><a href="/home_page">Cancel</a></p>
+                <p class="pt-2" style="font-weight: bold;"><a href="/home_page">Cancel</a></p>
             </form>
 
 

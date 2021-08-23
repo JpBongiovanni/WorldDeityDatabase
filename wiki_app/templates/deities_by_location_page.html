@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static '/css/bootstrap.min.css'%}">
 <link rel="stylesheet" href="{% static '/css/style.css' %}">
 <title>Deities by Location</title>
-<body>
+<body style= "background-image: url(https://cdn.pixabay.com/photo/2016/04/08/00/42/seamless-1315326_1280.jpg)">
     <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -33,7 +33,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
         <h1>Deities by Location: <i>{{deity_location}}</i></h1>
         {{deity.location}}
         {% for deity in deity %}

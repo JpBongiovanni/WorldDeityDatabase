@@ -11,10 +11,8 @@
 
     <title>Register</title>
 </head>
-<body>
-    
-    
-    <div class="container" id="log-reg">
+<body style= "background-image: url(https://cdn.pixabay.com/photo/2016/04/08/00/42/seamless-1315326_1280.jpg)">
+    <div class="container" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)" id="log-reg">
         {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -22,8 +20,8 @@
         {% endfor %}
     </ul>
     {% endif %}
-        <h2>Register</h2>
-        <form class="jumbotron" action="register" method="POST">
+        <h2 class="text-center">Register</h2>
+        <form class="jumbotron" action="register" method="POST" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
             {% csrf_token %}
             <div class="form-group">
                 <label for="first_name">First Name</label>
@@ -46,7 +44,7 @@
                 <input type="password" name="confirm" id="confirm" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
-            <p style="font-weight: bold;"><a href="log_in">Already have an account? Login</a></p>
+            <p class="pt-2" style="font-weight: bold;"><a href="log_in">Already have an account? Login</a></p>
             <p style="font-weight: bold;"><a href="/">Back</a></p>
         </form>
     </div>

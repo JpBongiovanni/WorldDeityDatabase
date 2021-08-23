@@ -7,11 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <!-- <link rel="stylesheet" href="static/css/style.css"> -->
 
     <title>Add to Database</title>
 </head>
-    <body>
+    <body style= "background-image: url(https://cdn.pixabay.com/photo/2016/04/08/00/42/seamless-1315326_1280.jpg)">
         <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -35,13 +35,12 @@
             </form>
             </div>
         </nav>
-        <div class="container">
+        <div class="container mt-4 pt-2 rounded" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
             {% for message in messages %}
             <p>{{message}}</p>
             {% endfor %}
-            <div class="jumbotron">
                 <h1>Contribute to the Database</h1>
-                <form class="jumbotron" action="add_deity" method="POST">
+                <form class="jumbotron bg-transparent" action="add_deity" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="name">Deity Name</label>
@@ -76,9 +75,8 @@
                         <textarea type="source" name="source" id="source" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Deity to Database</button>
-                    <p style="font-weight: bold;"><a href="/home_page">Cancel</a></p>
+                    <p class="pt-2" style="font-weight: bold;"><a href="/home_page">Cancel</a></p>
                 </form>
-            </div>
         </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

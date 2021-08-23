@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="static/css/style.css">
 
 <title>Home Page</title>
-<body>
+<body style= "background-image: url(https://cdn.pixabay.com/photo/2016/04/08/00/42/seamless-1315326_1280.jpg)">
     <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -34,12 +34,12 @@
         </div>
     </nav>
 
-    <div class="container container-fluid">
+    <div class="container container-fluid pb-2 text-center" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
         <h1 class="display-4">Welcome {{user.first_name}}!</h1>
     </div>
-        <div class="container p-3 my-3 border">
+        <div class="container p-4 my-3 border" style= "background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WoLFtS43tsSqqrldoUNmiPkABqBBvDFc-w&usqp=CAU)">
             <div class="row">
-                <div style="border-style: solid;" class="col">
+                <div style="border-style: solid;" class="col rounded">
                     <h4>Identify Deities by Locations</h4>
                     {% for deity in deity_sidebar_L %}
                     <ul>
@@ -62,7 +62,7 @@
                 <hr style="border: 1px solid black;">
                 {% endfor %}
                 </div>
-                <div style="border-style: solid;" class="col">
+                <div style="border-style: solid;" class="col rounded">
                 <h4>Identify Deities by Religions</h4>
                 {% for deity in deity_sidebar_R %}
                     <ul>
