@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import User, Deity
 from urllib.parse import parse_qs
 import bcrypt
+import csv
 from django.db.models import Q
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
 from django.template.response import TemplateResponse
@@ -165,3 +166,16 @@ def edit_deity(request, deity_id):
         deity.source = request.POST['source']
         deity.save()
     return redirect('/home_page')
+
+def generateCSV(request):
+    response = HttpResponse(content_type='text/csv')
+
+    writer = csv.writer(response)
+    writer.writerow(['name', 'contributor', 'alt_name', 'culture', 'location', 'religion', 'descripton', 'pop_culture', 'source'])
+
+    for deity in Deity.objects.all().values_list('name', 'contributor', 'alt_name', 'culture', 'location', 'religion', 'description', 'pop_culture', 'source'):
+        writer.writerow(deity)
+    
+    response['Content-Disposition'] = 'attachment; filename="Deities.csv"'
+
+    return response
