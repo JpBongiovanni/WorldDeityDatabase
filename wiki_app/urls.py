@@ -20,4 +20,6 @@ urlpatterns = [
     path('deity_edit_page/<int:deity_id>', views.deity_edit_page),
     path('edit_deity/<int:deity_id>', views.edit_deity),
     path('genCSV', views.generateCSV),
+    path('wiki_sum/<str:deity_name>', views.wiki_sum_page),
+    path('wiki_error', views.wiki_error)
 ]

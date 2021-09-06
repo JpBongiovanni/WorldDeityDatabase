@@ -7,6 +7,7 @@ import csv
 from django.db.models import Q
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
 from django.template.response import TemplateResponse
+import wikipedia
 
 
 
@@ -93,6 +94,32 @@ def register(request):
         new_user = User.objects.register(request.POST)
         request.session['user_id'] = new_user.id
         return redirect('/home_page')
+
+def wiki_sum_page(request, deity_name):
+    
+    try: 
+        text = wikipedia.summary(deity_name, auto_suggest=False)
+        url = wikipedia.page(deity_name, auto_suggest=False).url
+
+        context = {
+            "user": User.objects.get(id = request.session['user_id']),
+            "deity_name": deity_name,
+            "text": text,
+            "url": url,
+            
+        }
+        
+        return render(request, "wiki_sum.html", context)
+
+    except:
+        return redirect('/wiki_error')
+
+def wiki_error(request):
+    context = {
+        "user": User.objects.get(id = request.session['user_id'])
+    }
+    return render(request, "wiki_error.html", context)
+
 
 def login(request):
     if request.method == "GET":
