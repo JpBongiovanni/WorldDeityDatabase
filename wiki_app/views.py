@@ -1,3 +1,4 @@
+import wikipedia
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from .models import User, Deity
@@ -9,7 +10,7 @@ from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 import csv
 from itertools import islice
 from operator import itemgetter
-import wikipedia
+
 
 
 
