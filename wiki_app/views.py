@@ -143,16 +143,30 @@ def searchbar(request):
     if request.method == "GET":
         search = request.GET["search"],
         print(search)
-        print(search[0])
+        searchList = search[0].split()
         # deity = Deity.objects.filter(Q(name__icontains=search[0])|Q(location__icontains=search[0])|Q(alt_name__icontains=search[0])|Q(culture__icontains=search[0])|Q(religion__icontains=search[0])|Q(description__icontains=search[0])|Q(pop_culture__icontains=search[0])),
 
-        deity = Deity.objects.annotate(search=SearchVector('name', 'location', 'alt_name', 'culture', 'religion', 'description', 'pop_culture'),).filter(search=SearchQuery(search[0], search_type='phrase')),
+        # searchStr = convertTuple(search)
+        # print(searchStr)
+        # searchStr = searchStr.split()
+        # print(searchStr)
+
+        # search = re.findall(search, txt)
+        results = []
+        for searchWord in searchList:
+            searchRes = Deity.objects.annotate(search=SearchVector('name', 'location', 'alt_name', 'culture', 'religion', 'description', 'pop_culture'),).filter(search=SearchQuery(searchWord, search_type='phrase'))
+            
+            results.append(searchRes)
+
+        
+
+        # deity = Deity.objects.annotate(search=SearchVector('name') + SearchVector('location') + SearchVector('alt_name') + SearchVector('culture') + SearchVector('religion') + SearchVector('description') + SearchVector('pop_culture'),).filter(search=SearchQuery(search, search_type'phrase')),
 
         
 
         context = {
             "user": User.objects.get(id = request.session['user_id']),
-            "deity": deity,
+            "deity": results,
             "search": search[0],
         }
         return render(request, 'search_results.html', context)
