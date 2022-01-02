@@ -1,0 +1,7 @@
+.settings.py
+.datadump.json
+.vscode/
+__pycache__/
+venv/
+db.sqlite3
+*.pyc
