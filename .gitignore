@@ -1,2 +1,1 @@
-.datadump.json
-*.secret_settings.py
+secret_settings.py
